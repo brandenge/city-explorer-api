@@ -19,6 +19,7 @@ app.get('/', start);
 
 const getWeather = async (request, response) => {
   try {
+    console.log('lat', request.query.lat, 'lon', request.query.lon);
     const lat = request.query.lat;
     const lon = request.query.lon;
     const weatherURL = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
