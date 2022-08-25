@@ -1,7 +1,7 @@
 # city-explorer-api
 
 **Author**: Branden Ge
-**Version**: 1.0.0
+**Version**: 1.0.2
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
@@ -48,18 +48,18 @@ Name of feature: 2) Weather data
 
 Estimate of time needed to complete: 2 hours
 
-Start time: 11:45 pm
+Start time: 3:30 pm
 
-Finish time: _____
+Finish time: 5:30 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hours
 
 Name of feature: 3) Error responses
 
 Estimate of time needed to complete: 1 hour
 
-Start time: _____
+Start time: 5:30 pm
 
-Finish time: _____
+Finish time: 7 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1.5 hours

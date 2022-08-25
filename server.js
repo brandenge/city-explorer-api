@@ -17,14 +17,14 @@ app.get('/', (request, response) => {
   response.status(200).send('Welcome to the EXPLORE-CITY-API');
 });
 
-app.get('/weather', (request, response, next) => {
+app.get('/weather', (request, response) => {
   try {
     const cityName = request.query.cityName;
     const dataToGroom = data.find(city => city.city_name === cityName);
     const dataToSend = dataToGroom.data.map(day => new Forecast(day));
     response.status(200).send(dataToSend);
   } catch(error) {
-    next(error);
+    response.status(500).send(error.message);
   }
 });
 
@@ -37,8 +37,4 @@ class Forecast {
 
 app.get('*', (request, response) => {
   response.status(404).send('This route does not exist');
-});
-
-app.use((error, request, response) => {
-  response.status(500).send(error.message);
 });
