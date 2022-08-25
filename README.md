@@ -21,7 +21,7 @@ This application uses JavaScript, Node.js, Express.js, cors, dotenv, and nodemon
 
 The architecture of this application is that this application acts as a middle layer between a client that is consuming weather data, and a 3rd party API that provides weather data (currently using JSON data as a placeholder).
 
-![diagram](lab7.png)
+![diagram](diagram.png)
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -32,10 +32,13 @@ The architecture of this application is that this application acts as a middle l
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+The lab demos by Audrey Patterson and Code Fellows was a big help.
 
-Audrey Patterson and Code Fellows class 7 lab demo - [link](https://github.com/codefellows/seattle-code-301d88/tree/main/class-07)
+1) [Lab 6 demo](https://github.com/codefellows/seattle-code-301d88/blob/main/class-06)
+2) [Lab 7 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-07)
+3) [Lab 8 demo](https://github.com/codefellows/seattle-code-301d88/tree/main/class-08)
 
-Name of feature: 1) Set up your server repository
+### 1) Name of feature: Set up your server repository
 
 Estimate of time needed to complete: 1
 
@@ -45,7 +48,7 @@ Finish time: 11:45 pm
 
 Actual time needed to complete: 1 hour
 
-Name of feature: 2) Weather data
+### 2) Name of feature: Weather data
 
 Estimate of time needed to complete: 2 hours
 
@@ -55,7 +58,7 @@ Finish time: 5:30 pm
 
 Actual time needed to complete: 2 hours
 
-Name of feature: 3) Error responses
+### 3) Name of feature: Error responses
 
 Estimate of time needed to complete: 1 hour
 
@@ -64,3 +67,33 @@ Start time: 5:30 pm
 Finish time: 7 pm
 
 Actual time needed to complete: 1.5 hours
+
+### 4) Name of feature: Adding weather
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 9 pm
+
+Finish time: 11:20 pm
+
+Actual time needed to complete: 2 hours and 20 minutes
+
+### 5) Name of feature: Adding movies
+
+Estimate of time needed to complete: 2 hours
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+### 6) Name of feature: Deploying
+
+Estimate of time needed to complete: 1 hour
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
