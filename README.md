@@ -1,7 +1,7 @@
 # city-explorer-api
 
 **Author**: Branden Ge
-**Version**: 1.0.2
+**Version**: 1.0.3
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
@@ -82,11 +82,11 @@ Actual time needed to complete: 2 hours and 20 minutes
 
 Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 8:30 am
 
-Finish time: _____
+Finish time: 11 am
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2.5 hours
 
 ### 6) Name of feature: Deploying
 
