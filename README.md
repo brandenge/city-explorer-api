@@ -27,7 +27,8 @@ The architecture of this application is that this application acts as a middle l
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
-08-23-2022 11:45pm - Initial setup
+08-23-2022 11:45 pm - Initial setup
+08-24-2022 7:17 pm - back end and front end complete, deployed, and correctly linked up.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
