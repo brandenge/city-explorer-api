@@ -4,10 +4,13 @@ const axios = require('axios');
 
 const getWeather = async (request, response) => {
   try {
-    const lat = request.query.lat;
-    const lon = request.query.lon;
-    const weatherURL = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
-    const dataToGroom = await axios.get(weatherURL);
+    const { lat, lon } =  request.query;
+    const weatherBaseURL = `https://api.weatherbit.io/v2.0/forecast/daily`;
+    const dataToGroom = await axios.get(weatherBaseURL, { params: {
+      lat: lat,
+      lon: lon,
+      key: process.env.WEATHER_API_KEY
+    }});
     const dataToSend = dataToGroom.data.data.map(day => new Forecast(day));
     response.status(200).send(dataToSend);
   } catch(error) {
