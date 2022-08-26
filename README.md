@@ -21,7 +21,10 @@ This application uses JavaScript, Node.js, Express.js, cors, dotenv, and nodemon
 
 The architecture of this application is that this application acts as a middle layer between a client that is consuming weather data, and a 3rd party API that provides weather data (currently using JSON data as a placeholder).
 
-![diagram](diagram.png)
+![Diagram 1](./diagrams/1.png)
+![Diagram 2](./diagrams/2.png)
+![Diagram 3](./diagrams/3.png)
+![Diagram 4](./diagrams/4.png)
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -98,22 +101,12 @@ Finish time: 5:45
 
 Actual time needed to complete: 1 hour
 
-### 7) Name of feature: Refactor back-end with server.js, weather.js, and movies.js
+### 7) Name of feature: Refactor back end into separate server.js, weather.js, and movies.js
 
 Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 7 pm
 
-Finish time: _____
+Finish time: 8 pm
 
-Actual time needed to complete: _____
-
-### 8) Name of feature: Refactor the front-end with additional components
-
-Estimate of time needed to complete: 2 hours
-
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour
