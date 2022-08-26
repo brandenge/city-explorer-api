@@ -100,3 +100,13 @@ Start time: 4:45 pm
 Finish time: 5:45
 
 Actual time needed to complete: 1 hour
+
+### 7) Name of feature: Refactor back end into separate server.js, weather.js, and movies.js
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 7 pm
+
+Finish time: 8 pm
+
+Actual time needed to complete: 1 hour
