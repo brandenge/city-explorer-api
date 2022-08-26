@@ -97,3 +97,23 @@ Start time: 4:45 pm
 Finish time: 5:45
 
 Actual time needed to complete: 1 hour
+
+### 7) Name of feature: Refactor back-end with server.js, weather.js, and movies.js
+
+Estimate of time needed to complete: 2 hours
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+### 8) Name of feature: Refactor the front-end with additional components
+
+Estimate of time needed to complete: 2 hours
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
