@@ -5,25 +5,25 @@ require('dotenv').config();
 const cors = require('cors');
 const getWeather = require('./modules/weather');
 const getMovies = require('./modules/movies');
+const getYelp = require('./modules/yelp');
 
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3002;
-app.listen(PORT, () => console.log(`The server is up on PORT: ${PORT}`));
+app.listen(PORT, () => console.log(`Server up on ${PORT}`));
 
-const start = async (request, response) => {
-  console.log('Hello from the EXPLORE-CITY-API!');
-  response.status(200).send('Welcome to the EXPLORE-CITY-API');
-};
+function weatherHandler(request, response) {
+  const { lat, lon } = request.query;
+  getWeather(lat, lon)
+    .then(summaries => response.status(200).send(summaries))
+    .catch((error) => {
+      console.error(error);
+      response.status(500).send('Sorry. Something went wrong!');
+    });
+}
 
-app.get('/', start);
-
-app.get('/weather', getWeather);
+app.get('/weather', weatherHandler);
 
 app.get('/movies', getMovies);
 
-const notFound = (request, response) => {
-  response.status(404).send('This route does not exist');
-};
-
-app.get('*', notFound);
+app.get('/yelp', getYelp);

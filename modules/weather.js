@@ -1,28 +1,54 @@
 'use strict';
 
+const cache = require('./cache.js');
 const axios = require('axios');
 
-const getWeather = async (request, response) => {
-  try {
-    const { lat, lon } =  request.query;
-    const weatherBaseURL = `https://api.weatherbit.io/v2.0/forecast/daily`;
-    const dataToGroom = await axios.get(weatherBaseURL, { params: {
-      lat: lat,
-      lon: lon,
-      key: process.env.WEATHER_API_KEY
-    }});
-    const dataToSend = dataToGroom.data.data.map(day => new Forecast(day));
-    response.status(200).send(dataToSend);
-  } catch(error) {
-    console.log('ERROR FROM getWeather');
-    response.status(500).send(error.message);
-  }
-};
+function getWeather(latitude, longitude) {
+  const key = 'weather-' + latitude + longitude;
+  const baseWeatherURL = `http://api.weatherbit.io/v2.0/forecast/daily/`;
 
-class Forecast {
-  constructor(dayObj) {
-    this.date = dayObj.valid_date;
-    this.description = dayObj.weather.description;
+  if (cache[key] && (Date.now() - cache[key].timestamp < 20000)) {
+    console.log('Cache hit');
+    return cache[key];
+  } else {
+    console.log('Cache miss');
+    return axios.get(baseWeatherURL, { params: {
+      key: process.env.WEATHER_API_KEY,
+      lat: latitude,
+      lon: longitude,
+      days: 5,
+      lang: 'en'
+    }})
+      .then(response => parseWeather(response.data))
+      .then(groomedData => {
+        cache[key] = {};
+        cache[key].timestamp = Date.now();
+        cache[key].data = groomedData;
+        return groomedData;
+      })
+      .catch(error => {
+        console.log('Error in getWeather', error);
+        return error;
+      });
+  }
+}
+
+function parseWeather(weatherData) {
+  try {
+    const weatherSummaries = weatherData.data.map(day => {
+      return new Weather(day);
+    });
+    return weatherSummaries;
+  } catch (error) {
+    console.log('Error in parseWeather', error);
+    return error;
+  }
+}
+
+class Weather {
+  constructor(day) {
+    this.forecast = day.weather.description;
+    this.time = day.datetime;
   }
 }
 
