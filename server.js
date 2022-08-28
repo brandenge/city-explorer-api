@@ -27,3 +27,9 @@ app.get('/weather', weatherHandler);
 app.get('/movies', getMovies);
 
 app.get('/yelp', getYelp);
+
+const notFound = (request, response) => {
+  response.status(404).send('This route does not exist');
+};
+
+app.get('*', notFound);

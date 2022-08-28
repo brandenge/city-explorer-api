@@ -5,13 +5,13 @@ const axios = require('axios');
 
 const getMovies = async (request, response) => {
   try {
-    const cityName = request.query.cityName;
+    const { cityName } = request.query;
     const key = 'movies-' + cityName;
     if (cache[key] && (Date.now() - cache[key].timestamp < 20000)) {
-      console.log('Cache hit');
+      console.log('Movies Cache hit');
       response.status(200).send(cache[key]);
     } else {
-      console.log('Cache miss');
+      console.log('Movies Cache miss');
       const moviesBaseURL = `https://api.themoviedb.org/3/search/movie`;
       const dataToGroom = await axios.get(moviesBaseURL, { params: {
         api_key: process.env.MOVIE_API_KEY,
@@ -21,6 +21,9 @@ const getMovies = async (request, response) => {
         include_adult: false
       }});
       const dataToSend = dataToGroom.data.results.map(movie => new Movie(movie));
+      cache[key] = {};
+      cache[key].timestamp = Date.now();
+      cache[key].data = dataToSend;
       response.status(200).send(dataToSend);
     }
   } catch(error) {

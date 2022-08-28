@@ -3,16 +3,17 @@
 const cache = require('./cache.js');
 const axios = require('axios');
 
-const getRestaurants = async (request, response) => {
+const getYelp = async (request, response) => {
   try {
     const { lat, lon } =  request.query;
     const key = 'restaurants-' + lat + lon;
     if (cache[key] && (Date.now() - cache[key].timestamp < 20000)) {
-      console.log('Cache hit');
+      console.log('Yelp Cache hit');
       response.status(200).send(cache[key]);
     } else {
-      console.log('Cache miss');
+      console.log('Yelp Cache miss');
       const yelpBaseURL = `https://api.yelp.com/v3/businesses/search`;
+
       const dataToGroom = await axios.get(yelpBaseURL,
         {
           params: {
@@ -20,9 +21,7 @@ const getRestaurants = async (request, response) => {
             longitude: lon,
             categories: 'restaurants',
             limit: 20
-          }
-        },
-        {
+          },
           headers: {
             Authorization: `Bearer ${process.env.YELP_API_KEY}`
           }
@@ -31,7 +30,7 @@ const getRestaurants = async (request, response) => {
       response.status(200).send(dataToSend);
     }
   } catch(error) {
-    console.log('ERROR FROM getRestaurants', error);
+    console.log('ERROR FROM getYelp', error);
     response.status(500).send(error.message);
   }
 };
@@ -47,4 +46,4 @@ class Restaurant {
   }
 }
 
-module.exports = getRestaurants;
+module.exports = getYelp;
