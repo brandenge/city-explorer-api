@@ -7,9 +7,9 @@ const getMovies = async (request, response) => {
   try {
     const { cityName } = request.query;
     const key = 'movies-' + cityName;
-    if (cache[key] && (Date.now() - cache[key].timestamp < 20000)) {
+    if (cache[key] && (Date.now() - cache[key].timestamp < 60000)) {
       console.log('Movies Cache hit');
-      response.status(200).send(cache[key]);
+      response.status(200).send(cache[key].data);
     } else {
       console.log('Movies Cache miss');
       const moviesBaseURL = `https://api.themoviedb.org/3/search/movie`;

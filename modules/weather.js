@@ -7,9 +7,9 @@ function getWeather(latitude, longitude) {
   const key = 'weather-' + latitude + longitude;
   const baseWeatherURL = `http://api.weatherbit.io/v2.0/forecast/daily/`;
 
-  if (cache[key] && (Date.now() - cache[key].timestamp < 20000)) {
+  if (cache[key] && (Date.now() - cache[key].timestamp < 60000)) {
     console.log('Weather Cache hit');
-    return new Promise(() => cache[key]);
+    return Promise.resolve(cache[key].data);
   } else {
     console.log('Weather Cache miss');
     return axios.get(baseWeatherURL, { params: {
@@ -24,7 +24,6 @@ function getWeather(latitude, longitude) {
         cache[key] = {};
         cache[key].timestamp = Date.now();
         cache[key].data = groomedData;
-        console.log(groomedData);
         return groomedData;
       })
       .catch(error => {

@@ -7,9 +7,9 @@ const getYelp = async (request, response) => {
   try {
     const { lat, lon } =  request.query;
     const key = 'restaurants-' + lat + lon;
-    if (cache[key] && (Date.now() - cache[key].timestamp < 20000)) {
+    if (cache[key] && (Date.now() - cache[key].timestamp < 60000)) {
       console.log('Yelp Cache hit');
-      response.status(200).send(cache[key]);
+      response.status(200).send(cache[key].data);
     } else {
       console.log('Yelp Cache miss');
       const yelpBaseURL = `https://api.yelp.com/v3/businesses/search`;
@@ -27,6 +27,9 @@ const getYelp = async (request, response) => {
           }
         });
       const dataToSend = dataToGroom.data.businesses.map(restaurant => new Restaurant(restaurant));
+      cache[key] = {};
+      cache[key].timestamp = Date.now();
+      cache[key].data = dataToSend;
       response.status(200).send(dataToSend);
     }
   } catch(error) {
